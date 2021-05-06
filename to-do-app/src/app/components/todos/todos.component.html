@@ -1,0 +1,14 @@
+<mat-card>
+  <div class="todos">
+    <form (submit)="addTodo()">
+      <input matInput type="text" name="inputTodo" placeholder="Enter todo..." class="todo-input"
+        [(ngModel)]="inputTodo" />
+      <button mat-button color="primary" type="submit" class="todo-submit">Add New Task </button>
+
+    </form>
+    <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed  ? 'done' : '') }}">
+      <div class="content" (click)="toggleDone(i)">{{ todo.content }}</div>
+      <button mat-raised-button class="delete" (click)="deleteTodo(i)">Remove</button>
+    </div>
+  </div>
+</mat-card>
